@@ -1,6 +1,9 @@
-FROM python:3.11-slim
+FROM python:3.11-slim-bullseye
 
 WORKDIR /app
+
+# Install security updates
+RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 COPY requirements.txt .
 
